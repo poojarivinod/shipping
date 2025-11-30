@@ -11,6 +11,6 @@ RUN addgroup -S roboshop && adduser -S roboshop -G roboshop && \
     mkdir /opt/server && \
     chown -R roboshop:roboshop /opt/server
 WORKDIR /opt/server
-COPY --from=builder /opt/server/target/shipping-1.0.jar /opt/server/shipping.jar
+COPY --from=builder /opt/server/target/shipping-*.jar /opt/server/shipping.jar
 USER roboshop
 CMD ["java", "-jar", "shipping.jar"]
